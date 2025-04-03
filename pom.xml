@@ -9,16 +9,24 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wpch</groupId>
-	<artifactId>rabbitmq-messages</artifactId>
+	<artifactId>rabbitmq-consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rabbitmq-messages</name>
-	<description>Demo project for Spring Boot</description>
+	<name>rabbitmq-consumer</name>
+	<description>POC Consumir com Java/Spring Boot as mensagens do RabbitMQ criadas com Python ou Java</description>
 	<url/>
 	<licenses>
 		<license/>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<name>Wagner Pereira Chequeleiro</name>
+			<email>w.chequeleiro@gmail.com</email>
+			<organizationUrl>https://github.com/wagnerpch</organizationUrl>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+			<timezone>-03:00</timezone>
+		</developer>
 	</developers>
 	<scm>
 		<connection/>
@@ -28,40 +36,10 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<dotenv-java.version>3.2.0</dotenv-java.version>
+		<jackson-databind.version>2.18.3</jackson-databind.version>
+		<instancio.version>1.0.4</instancio.version>
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-amqp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.amqp</groupId>
-			<artifactId>spring-rabbit-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -90,5 +68,77 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
+	<dependencies>
+
+		<!--Environment Variables-->
+		<!-- https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java -->
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>dotenv-java</artifactId>
+			<version>${dotenv-java.version}</version>
+		</dependency>
+
+		<!--SpringBoot-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!--Lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!--RabbitMQ And Jackson-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
+		</dependency>
+
+		<!--DevTools-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!--Data Base On Memory-->
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!--Tests-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.instancio/instancio -->
+		<dependency>
+			<groupId>org.instancio</groupId>
+			<artifactId>instancio</artifactId>
+			<version>${instancio.version}</version>
+		</dependency>
+
+	</dependencies>
 
 </project>

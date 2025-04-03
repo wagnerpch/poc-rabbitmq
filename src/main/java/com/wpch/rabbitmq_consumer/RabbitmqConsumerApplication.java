@@ -1,13 +1,13 @@
-package com.wpch.rabbitmq_messages;
+package com.wpch.rabbitmq_consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RabbitmqMessagesApplication {
+public class RabbitmqConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RabbitmqMessagesApplication.class, args);
+		SpringApplication.run(RabbitmqConsumerApplication.class, args);
 	}
 
 }
